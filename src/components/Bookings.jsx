@@ -160,7 +160,14 @@ function Bookings() {
 
       // Reset form
       setNewBooking({
-        customer_id: '',
+        // Customer information
+        customer_name: '',
+        customer_email: '',
+        customer_phone: '',
+        customer_address: '',
+        customer_city: '',
+        customer_zip: '',
+        // Booking information
         service_id: '',
         appointment_date: '',
         appointment_time: '',

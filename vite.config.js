@@ -15,6 +15,12 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       }
-    }
+    },
+    // Allow ngrok domains
+    hmr: {
+      clientPort: 443 // Use 443 for ngrok
+    },
+    // Allow all hosts (including ngrok domains)
+    allowedHosts: 'all'
   },
 })
