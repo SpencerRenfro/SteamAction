@@ -50,6 +50,7 @@ function init() {
         appointment_date DATE,
         appointment_time TIME,
         square_feet INTEGER,
+        deposit_fee DECIMAL(10, 2) DEFAULT 50.00,
         status TEXT DEFAULT 'Scheduled',
         notes TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
