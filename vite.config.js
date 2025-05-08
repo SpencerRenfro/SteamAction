@@ -21,6 +21,6 @@ export default defineConfig({
       clientPort: 443 // Use 443 for ngrok
     },
     // Allow all hosts (including ngrok domains)
-    allowedHosts: 'all'
+    allowedHosts: ['.ngrok-free.app']
   },
 })
