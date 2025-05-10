@@ -82,11 +82,10 @@ function init() {
       // Add sample services
       const insertService = db.prepare('INSERT INTO Services (name, description, price_per_sqft, duration_minutes) VALUES (?, ?, ?, ?)');
 
-      insertService.run('Basic Cleaning', 'Standard cleaning service for homes', 0.50, 60);
-      insertService.run('Deep Cleaning', 'Thorough cleaning including hard-to-reach areas', 0.75, 120);
-      insertService.run('Move-in/Move-out Cleaning', 'Complete cleaning for new or vacated properties', 0.90, 180);
-      insertService.run('Window Cleaning', 'Interior and exterior window cleaning', 0.40, 45);
-      insertService.run('Carpet Cleaning', 'Deep carpet cleaning and stain removal', 0.60, 90);
+      insertService.run('Grout', 'Thorough cleaning including hard-to-reach areas', 0.75, 120);
+      insertService.run('Upholstery', 'Uphollstery cleaning and stain removal', 0.90, 180);
+      insertService.run('Tile', 'Interior and exterior tile cleaning', 0.40, 45);
+      insertService.run('Carpet', 'Deep carpet cleaning and stain removal', 0.60, 90);
 
       console.log('Sample services added to the database');
 
@@ -97,7 +96,6 @@ function init() {
       insertCustomer.run('Jane Smith', '555-987-6543', 'jane.smith@example.com', '456 Oak Ave', 'Bellevue', '98004');
       insertCustomer.run('Robert Johnson', '555-456-7890', 'robert.j@example.com', '789 Pine Rd', 'Redmond', '98052');
       insertCustomer.run('Sarah Williams', '555-789-0123', 'sarah.w@example.com', '321 Cedar Blvd', 'Kirkland', '98033');
-      insertCustomer.run('Michael Brown', '555-234-5678', 'michael.b@example.com', '654 Maple Dr', 'Renton', '98055');
 
       console.log('Sample customers added to the database');
 
@@ -108,7 +106,6 @@ function init() {
       insertBooking.run(2, 3, '2024-10-16', '13:30:00', 1800, 'Scheduled', 'New construction, needs thorough cleaning');
       insertBooking.run(3, 2, '2024-10-17', '10:00:00', 1500, 'Scheduled', 'Has pets, please be careful with the door');
       insertBooking.run(4, 4, '2024-10-18', '14:00:00', 1000, 'Scheduled', 'Focus on exterior windows');
-      insertBooking.run(5, 5, '2024-10-19', '11:00:00', 2000, 'Scheduled', 'Several stains in living room carpet');
 
       console.log('Sample bookings added to the database');
 
@@ -119,18 +116,17 @@ function init() {
       insertReview.run(2, 4, 'Great job on the move-out cleaning. Saved me a lot of time.');
       insertReview.run(3, 5, 'Very thorough and professional. Will use again.');
       insertReview.run(4, 3, 'Good window cleaning, but missed a few spots.');
-      insertReview.run(5, 5, 'Amazing results on my carpets! All stains removed.');
 
       console.log('Sample reviews added to the database');
 
       // Add sample service areas
       const insertArea = db.prepare('INSERT INTO ServiceAreas (city, zip_code, coverage_radius_miles) VALUES (?, ?, ?)');
 
-      insertArea.run('Seattle', '98101', 15);
-      insertArea.run('Bellevue', '98004', 10);
-      insertArea.run('Redmond', '98052', 12);
-      insertArea.run('Kirkland', '98033', 8);
-      insertArea.run('Renton', '98055', 10);
+      insertArea.run('Highland', '62249', 15);
+      insertArea.run('Greenville', '62246', 10);
+      insertArea.run('O\'Fallon', '62208', 12);
+      insertArea.run('Carlinville', '62626', 8);
+
 
       console.log('Sample service areas added to the database');
     }

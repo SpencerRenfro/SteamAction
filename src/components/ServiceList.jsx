@@ -109,7 +109,7 @@ function ServiceList() {
         </Alert>
       )}
 
-      <form onSubmit={handleAddService} className="mb-6 bg-base-200 p-4 rounded-lg">
+      {/* <form onSubmit={handleAddService} className="mb-6 bg-base-200 p-4 rounded-lg">
         <h3 className="text-xl font-semibold mb-2">Add New Service</h3>
         <Input
           label="Name"
@@ -160,7 +160,7 @@ function ServiceList() {
         >
           Add Service
         </Button>
-      </form>
+      </form> */}
 
       {loading ? (
         <div className="text-center py-4">Loading services...</div>
@@ -174,15 +174,15 @@ function ServiceList() {
                 key={service.service_id}
                 title={service.name}
                 subtitle={service.description || 'No description'}
-                actions={
-                  <Button
-                    variant="error"
-                    size="sm"
-                    onClick={() => handleDeleteService(service.service_id)}
-                  >
-                    Delete
-                  </Button>
-                }
+                // actions={
+                //   <Button
+                //     variant="error"
+                //     size="sm"
+                //     onClick={() => handleDeleteService(service.service_id)}
+                //   >
+                //     Delete
+                //   </Button>
+                // }
               >
                 <div className="grid grid-cols-2 gap-2 my-2">
                   <div className="bg-base-200 p-2 rounded">
