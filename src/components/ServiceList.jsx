@@ -1,63 +1,55 @@
 import { useState, useEffect } from 'react';
 
 function ServiceList() {
-  // Sample service data
+  // Service data for carpet, tile, grout, and upholstery cleaning
   const sampleServices = [
     {
       service_id: 1,
-      name: "Basic Carpet Cleaning",
-      description: "Standard carpet cleaning service for regular maintenance.",
-      price_per_sqft: 0.25,
+      name: "Carpet Cleaning",
+      description: "Professional hot water extraction carpet cleaning that removes dirt, allergens, and stains from your carpets.",
+      price_per_sqft: 0.30,
       duration_minutes: 60
     },
     {
       service_id: 2,
-      name: "Deep Carpet Cleaning",
-      description: "Intensive cleaning for heavily soiled carpets.",
-      price_per_sqft: 0.40,
-      duration_minutes: 90
-    },
-    {
-      service_id: 3,
-      name: "Pet Stain Treatment",
-      description: "Specialized treatment for pet stains and odors.",
-      price_per_sqft: 0.35,
+      name: "Tile Cleaning",
+      description: "Thorough cleaning of tile surfaces to remove dirt, grime, and restore the original appearance of your tiles.",
+      price_per_sqft: 0.45,
       duration_minutes: 75
     },
     {
-      service_id: 4,
-      name: "Move-In/Move-Out Cleaning",
-      description: "Comprehensive cleaning for moving situations.",
-      price_per_sqft: 0.45,
-      duration_minutes: 120
-    },
-    {
-      service_id: 5,
-      name: "Commercial Carpet Cleaning",
-      description: "Professional cleaning for office and commercial spaces.",
-      price_per_sqft: 0.30,
+      service_id: 3,
+      name: "Grout Cleaning",
+      description: "Specialized cleaning to remove dirt and discoloration from grout lines between tiles, restoring their original color.",
+      price_per_sqft: 0.50,
       duration_minutes: 90
     },
     {
-      service_id: 6,
-      name: "Area Rug Cleaning",
-      description: "Specialized cleaning for delicate area rugs.",
-      price_per_sqft: 0.50,
+      service_id: 4,
+      name: "Upholstery Cleaning",
+      description: "Gentle yet effective cleaning for sofas, chairs, and other upholstered furniture to remove stains and odors.",
+      price_per_sqft: 0.55,
       duration_minutes: 60
     }
   ];
 
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Always use hardcoded data for now
+  const [services, setServices] = useState(sampleServices);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Load services when component mounts
+  // No API calls for now, just using hardcoded data
+  // This comment is left here to indicate where API calls would normally go
+
+  // If we need to simulate loading for UI testing
   useEffect(() => {
-    // Simulate API call
-    setTimeout(() => {
-      setServices(sampleServices);
+    // This is just for demonstration purposes
+    // In a real app with hardcoded data, we wouldn't need this
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

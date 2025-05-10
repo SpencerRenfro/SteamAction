@@ -26,7 +26,7 @@ export default function FAQ() {
         },
         {
             question: "What areas do you service?",
-            answer: "We currently service Seattle, Bellevue, Redmond, Kirkland, and Renton areas. Each location has a specific coverage radius. Check our Service Areas page for more detailed information about coverage in your specific zip code."
+            answer: "We currently service O'Fallon, Carlinville, Greenville, Highland, and Belleville areas in Illinois. Each location has a specific coverage radius. Check our Service Areas page for more detailed information about coverage in your specific zip code."
         },
         {
             question: "How do I schedule a cleaning?",

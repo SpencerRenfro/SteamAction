@@ -1,26 +1,29 @@
 import { useState } from 'react';
 
 function ServiceAreas() {
-  // Sample service area data
+  // Hardcoded service area data
   const serviceAreaData = [
-    { city: "Seattle", zipCodes: ["98101", "98102", "98103", "98104", "98105"], radius: 15 },
-    { city: "Bellevue", zipCodes: ["98004", "98005", "98006", "98007", "98008"], radius: 10 },
-    { city: "Redmond", zipCodes: ["98052", "98053", "98073"], radius: 8 },
-    { city: "Kirkland", zipCodes: ["98033", "98034"], radius: 10 },
-    { city: "Renton", zipCodes: ["98055", "98056", "98057", "98058", "98059"], radius: 12 }
+    { city: "O'Fallon", zipCodes: ["62269", "62236"], radius: 15 },
+    { city: "Carlinville", zipCodes: ["62626"], radius: 10 },
+    { city: "Greenville", zipCodes: ["62246"], radius: 12 },
+    { city: "Highland", zipCodes: ["62249"], radius: 15 },
+    { city: "Belleville", zipCodes: ["62220", "62221", "62222", "62223"], radius: 20 }
   ];
 
   const [searchZip, setSearchZip] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
+  // No API calls for now, just using hardcoded data
+  // This comment is left here to indicate where API calls would normally go
+
   const handleSearch = (e) => {
     e.preventDefault();
-    
+
     if (!searchZip || searchZip.length !== 5) {
       setSearchResult({ found: false, message: "Please enter a valid 5-digit ZIP code." });
       return;
     }
-    
+
     // Check if the ZIP code is in our service areas
     for (const area of serviceAreaData) {
       if (area.zipCodes.includes(searchZip)) {
@@ -33,7 +36,7 @@ function ServiceAreas() {
         return;
       }
     }
-    
+
     setSearchResult({
       found: false,
       message: `Sorry, we don't currently service ZIP code ${searchZip}. Please contact us to inquire about service availability.`
@@ -46,29 +49,11 @@ function ServiceAreas() {
 
       <div className="max-w-4xl mx-auto mb-8">
         <p className="text-center text-lg mb-6">
-          SteamAction provides cleaning services in the following areas.
+          SteamAction provides cleaning services in O'Fallon, Carlinville, Greenville, Highland, Belleville and surrounding areas.
           Check if your location is within our service radius!
         </p>
-        
-        <form onSubmit={handleSearch} className="max-w-md mx-auto mb-8">
-          <div className="flex">
-            <input
-              type="text"
-              placeholder="Enter ZIP code"
-              value={searchZip}
-              onChange={(e) => setSearchZip(e.target.value)}
-              className="flex-grow p-2 border rounded-l-md"
-              maxLength={5}
-            />
-            <button
-              type="submit"
-              className="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary-focus"
-            >
-              Check
-            </button>
-          </div>
-        </form>
-        
+
+
         {searchResult && (
           <div className={`p-4 rounded-md mb-8 ${searchResult.found ? 'bg-success text-success-content' : 'bg-error text-error-content'}`}>
             {searchResult.message}

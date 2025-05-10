@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import ServiceList from "./components/ServiceList";
 import ServiceAreas from "./components/ServiceAreas";
 import CarpetCalculator from "./components/CarpetCalculator";
-import FAQ from "./components/Faq";
+import Faq from "./components/Faq";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             {/* <Route path="/reviews" element={<Reviews />} /> */}
             <Route path="/service-areas" element={<ServiceAreas />} />
             <Route path="/calculator" element={<CarpetCalculator />} />
-            <Route path="/faq" element={<FAQ />} />
+            <Route path="/faq" element={<Faq />} />
           </Routes>
         </main>
         <Footer />
