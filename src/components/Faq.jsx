@@ -82,7 +82,7 @@ export default function FAQ() {
                     <p className="mb-6">Our customer service team is ready to help you with any other questions you might have.</p>
                     <div className="flex justify-center gap-4">
                         <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-focus">Contact Us</button>
-                        <button className="border border-primary text-primary px-4 py-2 rounded-md hover:bg-base-300">Call (555) 123-4567</button>
+                        <button className="border border-primary text-primary px-4 py-2 rounded-md hover:bg-base-300">Call (618) 971-1658</button>
                     </div>
                 </div>
             </div>
