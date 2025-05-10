@@ -7,24 +7,17 @@
     "dev": "vite",
     "server": "node --no-warnings server/index.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "share": "node ngrok-tunnel.cjs",
-    "share:frontend": "ngrok http 3000 --log=stdout",
-    "share:backend": "ngrok http 5000 --log=stdout",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "^3.7.0",
-    "@stripe/stripe-js": "^7.3.0",
     "better-sqlite3": "^11.9.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.5.3",
-    "sqlite3": "^5.1.7",
-    "stripe": "^18.1.0"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -38,7 +31,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "ngrok": "^5.0.0-beta.2",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
     "vite": "^6.3.5"
