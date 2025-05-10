@@ -12,12 +12,12 @@ function Home() {
             Our team of experienced professionals uses state-of-the-art equipment and
             eco-friendly products to ensure your space is spotless.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-base-100 p-4 rounded-md shadow">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div className="bg-base-100 p-6 rounded-md shadow">
               <h3 className="font-bold text-lg mb-2">Residential Cleaning</h3>
               <p>Keep your home fresh and clean with our comprehensive residential cleaning services.</p>
             </div>
-            <div className="bg-base-100 p-4 rounded-md shadow">
+            <div className="bg-base-100 p-6 rounded-md shadow">
               <h3 className="font-bold text-lg mb-2">Commercial Cleaning</h3>
               <p>Maintain a professional environment with our reliable commercial cleaning solutions.</p>
             </div>
