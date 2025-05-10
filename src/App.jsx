@@ -1,43 +1,36 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css";
-import ServiceList from "./components/ServiceList";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import ServiceList from "./components/ServiceList";
+import Bookings from "./components/Bookings";
+import Customers from "./components/Customers";
+import Reviews from "./components/Reviews";
+import ServiceAreas from "./components/ServiceAreas";
+import CarpetCalculator from "./components/CarpetCalculator";
+import FAQ from "./components/Faq";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Navbar />
-      
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-center mb-8">
-          <a href="https://vite.dev" target="_blank" className="mx-2">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank" className="mx-2">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        
-        <h1 className="text-3xl font-bold text-center mb-8">SteamAction Cleaning Services</h1>
-
-        <div className="my-8">
-          <ServiceList />
-        </div>
-
-        <div className="card bg-base-200 p-4 max-w-md mx-auto">
-          <button 
-            onClick={() => setCount((count) => count + 1)}
-            className="btn btn-primary"
-          >
-            count is {count}
-          </button>
-        </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServiceList />} />
+            {/* <Route path="/bookings" element={<Bookings />} /> */}
+            {/* <Route path="/customers" element={<Customers />} /> */}
+            {/* <Route path="/reviews" element={<Reviews />} /> */}
+            <Route path="/service-areas" element={<ServiceAreas />} />
+            <Route path="/calculator" element={<CarpetCalculator />} />
+            <Route path="/faq" element={<FAQ />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-    </>
+    </Router>
   );
 }
 
