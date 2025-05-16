@@ -7,6 +7,8 @@
     "dev": "vite",
     "server": "node --no-warnings server/index.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "share": "echo \"Starting ngrok tunnel to port 3002...\" && echo \"If this is your first time, sign up at https://dashboard.ngrok.com/signup\" && echo \"Then configure your authtoken with: npm run ngrok-config YOUR_AUTH_TOKEN\" && npx ngrok http 3002",
+    "ngrok-config": "npx ngrok config add-authtoken",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -32,6 +34,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "ngrok": "^5.0.0-beta.2",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
     "terser": "^5.39.0",

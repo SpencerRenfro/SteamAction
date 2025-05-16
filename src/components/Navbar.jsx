@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import SteamActionHeader from './SteamActionHeader';
+
 
 function Navbar() {
   const location = useLocation();
@@ -22,24 +24,7 @@ function Navbar() {
                 : "text-base-content hover:text-primary"
             }`}
           >
-            <div className="flex items-center">
-              <svg
-                className="h-8 w-8 text-primary mr-2"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-                <path d="M12 12v9"></path>
-                <path d="M8 17h8"></path>
-              </svg>
-              <span className="text-primary font-bold text-xl">
-                SteamAction
-              </span>
-            </div>
+            <SteamActionHeader />
           </Link>
 
           {/* Desktop menu */}
@@ -222,6 +207,7 @@ function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 sm:px-3 bg-base-200 flex flex-col gap-2">
+
             <Link
               to="/"
               className={`flex items-center px-6 py-3 rounded-md hover:bg-base-300 transition-colors justify-center ${

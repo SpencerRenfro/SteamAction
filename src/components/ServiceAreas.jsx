@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useModal } from '../context/ModalContext';
+import SEO from './SEO';
 
 function ServiceAreas() {
+  const { openContactModal } = useModal();
   // Hardcoded service area data
   const serviceAreaData = [
     { city: "O'Fallon", zipCodes: ["62269", "62236"], radius: 15 },
@@ -87,7 +90,10 @@ function ServiceAreas() {
           We're constantly expanding our coverage to serve more communities!
         </p>
         <div className="text-center mt-4">
-          <button className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-focus">
+          <button
+            onClick={openContactModal}
+            className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-focus"
+          >
             Contact Us
           </button>
         </div>
@@ -97,3 +103,4 @@ function ServiceAreas() {
 }
 
 export default ServiceAreas;
+

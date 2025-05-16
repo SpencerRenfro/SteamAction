@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import SEO from './SEO';
 
 function ServiceList() {
   // Service data for carpet, tile, grout, and upholstery cleaning
@@ -81,7 +82,7 @@ function ServiceList() {
                 <div className="p-6">
                   <h2 className="text-xl font-semibold mb-2">{service.name}</h2>
                   <p className="text-gray-600 mb-4">{service.description || 'No description'}</p>
-                  <div className="grid grid-cols-2 gap-2 mt-4">
+                  {/* <div className="grid grid-cols-2 gap-2 mt-4">
                     <div className="bg-base-100 p-3 rounded">
                       <span className="text-xs font-semibold">Price:</span>
                       <p className="font-bold">${service.price_per_sqft}/sq ft</p>
@@ -90,13 +91,13 @@ function ServiceList() {
                       <span className="text-xs font-semibold">Duration:</span>
                       <p className="font-bold">{service.duration_minutes} min</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="bg-base-300 px-6 py-3">
+                {/* <div className="bg-base-300 px-6 py-3">
                   <button className="w-full py-2 bg-primary text-white rounded-md hover:bg-primary-focus">
                     Book Now
                   </button>
-                </div>
+                </div> */}
               </div>
             ))
           )}
@@ -107,3 +108,4 @@ function ServiceList() {
 }
 
 export default ServiceList;
+

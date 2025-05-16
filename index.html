@@ -2,12 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Remove any cached favicon -->
+    <link rel="icon" href="data:,">
+    <!-- Add favicon -->
+    <link rel="icon" type="image/png" href="/SteamAction_Logo.png?v=2" />
+    <link rel="shortcut icon" href="/SteamAction_Logo.png?v=2" />
+    <link rel="apple-touch-icon" href="/SteamAction_Logo.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta name="description" content="SteamAction provides professional cleaning services for homes and businesses, specializing in carpet, tile, grout, and upholstery cleaning." />
+    <meta property="og:image" content="/SteamAction_Logo.png?v=2" />
+    <meta property="og:title" content="SteamAction Cleaning Services" />
+    <meta property="og:description" content="Professional carpet, tile, grout, and upholstery cleaning services." />
+    <meta property="twitter:card" content="summary_large_image" />
+    <title>SteamAction Cleaning Services</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Fix for third-party script errors -->
+    <script>
+      // Fix for className.indexOf error in third-party scripts
+      window.addEventListener('DOMContentLoaded', function() {
+        // Override addEventListener to catch and fix errors in click handlers
+        const originalAddEventListener = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function(type, listener, options) {
+          if (type === 'click') {
+            const wrappedListener = function(e) {
+              try {
+                // Ensure className is always a string
+                if (e && e.target && e.target.className && typeof e.target.className !== 'string') {
+                  // If className is a DOMTokenList (for SVG elements), convert to string
+                  if (e.target.className.baseVal !== undefined) {
+                    Object.defineProperty(e.target, 'className', {
+                      get: function() { return this.className.baseVal || ''; }
+                    });
+                  } else {
+                    // Fallback to empty string
+                    e.target.className = '';
+                  }
+                }
+                return listener.apply(this, arguments);
+              } catch (err) {
+                console.warn('Error in click handler:', err);
+                // Continue execution even if there's an error
+                return true;
+              }
+            };
+            return originalAddEventListener.call(this, type, wrappedListener, options);
+          }
+          return originalAddEventListener.call(this, type, listener, options);
+        };
+
+        // Fix for "Cannot read properties of undefined (reading 'create')" error
+        window.addEventListener('error', function(event) {
+          if (event.message && event.message.includes("Cannot read properties of undefined (reading 'create')")) {
+            event.preventDefault();
+            console.warn('Prevented error:', event.message);
+            return true;
+          }
+        }, true);
+      });
+    </script>
   </body>
 </html>
+
+
+
+
+

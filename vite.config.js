@@ -6,6 +6,11 @@ export default defineConfig(({ command }) => {
     plugins: [
       react(),
     ],
+    // Set site metadata
+    site: {
+      name: 'SteamAction Cleaning Services',
+      description: 'Professional cleaning services for homes and businesses, specializing in carpet, tile, grout, and upholstery cleaning.',
+    },
     server: {
       port: 3000,
       open: true,
@@ -17,9 +22,11 @@ export default defineConfig(({ command }) => {
           secure: false,
         }
       },
-      // Allow ngrok domains
+      // Configure WebSocket for HMR
       hmr: {
-        clientPort: 443 // Use 443 for ngrok
+        protocol: 'ws',
+        host: 'localhost',
+        port: 3000,
       },
       // Allow all hosts (including ngrok domains)
       allowedHosts: ['.ngrok-free.app']

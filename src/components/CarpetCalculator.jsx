@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from './SEO';
 
 function CarpetCalculator() {
   const [squareFeet, setSquareFeet] = useState(500);
@@ -16,15 +17,31 @@ function CarpetCalculator() {
   // Calculate estimates when inputs change
   const calculateEstimates = () => {
     let cost = squareFeet * baseRatePerSqFt;
+
+    let costForNumRooms = 0;
+
+    if (rooms > 3) {
+      costForNumRooms += (rooms - 3) * 39;
+    }
+
     
     // Add stain treatment if needed
     if (hasStains) {
-      cost += squareFeet * stainTreatmentRate;
+      cost += 20;
     }
     
     // Add pet treatment if needed
     if (hasPets) {
-      cost += squareFeet * petTreatmentRate;
+      cost += 15;
+    }
+
+    // min cost to come out is 129.00
+    if(cost < 129.00) {
+      cost = 129.00;
+    }
+
+    if(costForNumRooms != 0) {
+      cost += costForNumRooms;
     }
     
     // Round to 2 decimal places
@@ -45,6 +62,12 @@ function CarpetCalculator() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <SEO 
+        title="Carpet Cleaning Calculator"
+        description="Calculate the cost of professional carpet cleaning services based on square footage, rooms, and special treatments."
+        keywords="carpet cleaning calculator, cleaning cost estimator, professional carpet cleaning"
+      />
+      
       <h1 className="text-3xl font-bold text-center mb-8">Carpet Cleaning Calculator</h1>
       
       <div className="max-w-2xl mx-auto bg-base-200 p-6 rounded-lg shadow-lg">
@@ -79,7 +102,7 @@ function CarpetCalculator() {
               onChange={(e) => setHasStains(e.target.checked)}
               className="mr-2"
             />
-            <label htmlFor="stains">Heavy Stains (+${stainTreatmentRate.toFixed(2)}/sq ft)</label>
+            <label htmlFor="stains">Heavy Stains (+$20.00)</label>
           </div>
           
           <div className="flex items-center">
@@ -90,7 +113,7 @@ function CarpetCalculator() {
               onChange={(e) => setHasPets(e.target.checked)}
               className="mr-2"
             />
-            <label htmlFor="pets">Pet Treatment (+${petTreatmentRate.toFixed(2)}/sq ft)</label>
+            <label htmlFor="pets">Pet Treatment (+$15.00)</label>
           </div>
           
           <button
@@ -118,3 +141,7 @@ function CarpetCalculator() {
 }
 
 export default CarpetCalculator;
+
+
+
+
