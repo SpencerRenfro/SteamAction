@@ -8,6 +8,7 @@ import ServiceAreas from "./components/ServiceAreas";
 import CarpetCalculator from "./components/CarpetCalculator";
 import Faq from "./components/Faq";
 import { ModalProvider } from "./context/ModalContext";
+import OFallonCarpetCleaning from "./components/OFallonCarpetCleaning";
 
 function App() {
   return (
@@ -35,3 +36,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,4 +1,5 @@
 import SEO from './SEO';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -49,11 +50,28 @@ function Home() {
             <li>Competitive pricing</li>
           </ul>
         </div>
+
+        <div className="mt-8 bg-base-200 p-6 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Our Service Areas</h2>
+          <p className="mb-4">
+            We provide professional carpet cleaning services in O'Fallon, Carlinville, Greenville, 
+            Highland, and Belleville areas in Illinois.
+          </p>
+          <div className="mt-4">
+            <Link to="/carpet-cleaning-ofallon-il" className="text-primary hover:underline">
+              Carpet Cleaning in O'Fallon, IL
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Home;
+
+
+
+
 
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useModal } from '../context/ModalContext';
 import SEO from './SEO';
+import { Link } from 'react-router-dom';
 
 function ServiceAreas() {
   const { openContactModal } = useModal();
@@ -65,20 +66,17 @@ function ServiceAreas() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {serviceAreaData.map((area, index) => (
-          <div key={index} className="bg-base-200 p-6 rounded-lg shadow-md">
+        {serviceAreaData.map((area) => (
+          <div key={area.city} className="bg-base-200 p-6 rounded-lg shadow-md mb-4">
             <h2 className="text-xl font-semibold mb-2">{area.city}</h2>
             <p className="mb-2">Service radius: {area.radius} miles</p>
-            <div>
-              <h3 className="font-medium mb-1">ZIP Codes:</h3>
-              <div className="flex flex-wrap gap-1">
-                {area.zipCodes.map((zip) => (
-                  <span key={zip} className="bg-base-300 px-2 py-1 rounded-md text-sm">
-                    {zip}
-                  </span>
-                ))}
-              </div>
-            </div>
+            
+            {/* Add special link for O'Fallon */}
+            {area.city === "O'Fallon" && (
+              <Link to="/carpet-cleaning-ofallon-il" className="text-primary hover:underline">
+                Learn more about our carpet cleaning services in O'Fallon →
+              </Link>
+            )}
           </div>
         ))}
       </div>
@@ -103,4 +101,6 @@ function ServiceAreas() {
 }
 
 export default ServiceAreas;
+
+
 
